@@ -1,37 +1,33 @@
-package com.giri.logical;
+package com.giri.practice;
 
-public final  class Immutable {
-	
-	private final int empId;
-	
-	public Immutable(int empId) {
-		
-		this.empId=empId;
+public final class Immutable {
+
+	private final int i;
+
+	public Immutable(int i) {
+		super();
+		this.i = i;
 	}
 
-	public int getEmpId() {
-		return empId;
+	public Immutable modify(int i) {
+		if (this.i == i) {
+
+			return this;
+			
+		} else {
+			return (new Immutable(i));
+		}
+
 	}
-	
+
 	public static void main(String[] args) {
-		
-		Immutable im=new Immutable(2200556);
-		
-		System.out.println("EmpId="+im.getEmpId());
-		
-		Immutable im2=new Immutable(2200557);
-		
-		
-		System.out.println("EmpId2="+im.getEmpId());
-		
-		Immutable im3=new Immutable(2200558);
-		
-		System.out.println("EmpId2="+im3.getEmpId());
-		
-		System.out.println(im==im2);
-		
-		
-		
-	}
+		Immutable im = new Immutable(10);
+		Immutable im2 = im.modify(100);
+		Immutable im3 = im.modify(10);
+		System.out.println(im == im2);
+		System.out.println(im == im3);
+		Immutable im4 = im.modify(100);
+		System.out.println(im2 == im4);
 
+	}
 }

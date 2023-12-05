@@ -1,30 +1,32 @@
-package com.giri.logical;
+package com.giri.practice;
 
 public class Singletone {
 	
-	public static Singletone singletone = null;
+	private static Singletone st=null;
 
-	@SuppressWarnings("unused")
-	private void Singletoen() {
-
+	private Singletone() {
+		
+		super();
 	}
 
-	public static Singletone getInstant() {
-		if (singletone == null) {
-			singletone = new Singletone();
-
+	public static Singletone getSingletone() {
+		
+		if (st == null) {
+			
+			st = new Singletone();
 		}
-		return singletone;
-
+		
+		return st;
 	}
 
 	public static void main(String[] args) {
-		Singletone a = Singletone.getInstant();
-		Singletone b = Singletone.getInstant();
-		Singletone c = Singletone.getInstant();
-		System.out.println("Hashcode of a=" + a.hashCode());
-		System.out.println("Hashcode of b=" + b.hashCode());
-		System.out.println("Hashcode of c=" + c.hashCode());
-
+		
+		Singletone s1 = Singletone.getSingletone();
+		Singletone s2 = Singletone.getSingletone();
+		Singletone s3 = Singletone.getSingletone();
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+		System.out.println(s3.hashCode());
 	}
+
 }

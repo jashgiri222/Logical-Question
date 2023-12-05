@@ -1,61 +1,46 @@
-package com.giri.logical;
+package com.giri.practice;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Occurance {
-
 	public static void main(String[] args) {
 
-		// 1- java 8 find using "g"
+		String str = "my name is giri";
+       //Java 8 Approch
+		/*
+		 * Map<Character, Long> data = str.chars().mapToObj(c -> (char) c)
+		 * .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		 * System.out.println("Data" + data);
+		 */
 		
 		
-		String data[] = { "giri", "jash" };
-		List<String> n = Arrays.asList(data);
-		n.stream().filter(t -> t.startsWith("g")).forEach(System.out::println);
+		int freq[] = new int[str.length()];
 
-		
-		
-		// 2-java 8
-		
-		
-		String s = "aaaabbbbcccddddd";
-		Map<Character, Integer> map = new HashMap<>();
-		s.chars().forEach(e -> map.put((char) e, map.getOrDefault((char) e, 0) + 1));
-		System.out.println("freq" + map);
+		char string[] = str.toCharArray();
 
-      //3- normal
-		
-		
-		String text = "aasjjikkk";
+		for (int i = 0; i < str.length(); i++) {
 
-		char[] charArray = text.toCharArray();
+			freq[i] = 1;
 
-		Map<Character, Integer> freqList = new LinkedHashMap<Character, Integer>();
+			for (int j = i + 1; j < string.length; j++) {
+				if (string[i] == string[j]) {
+					freq[i]++;
+					string[j] = '0';
 
-		for (char key : charArray) {
-			if (freqList.containsKey(key)) {
-				freqList.put(key, freqList.get(key) + 1);
-			} else
-				freqList.put(key, 1);
+				}
+
+			}
 		}
-		System.out.println("freq" + freqList);
-		
-		
-		// java 8
-		
-		List<String> list = Arrays.asList("Zohne", "Redy", "Zohne", "Redy", "Stome");
-		
-		Map<String, Long> collect = list.stream()
-				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		
-		System.out.println(collect);
-	
+		for (int i = 0; i < freq.length; i++) {
+
+			if (string[i] != ' ' && string[i] != '0') {
+				System.out.println(string[i] + "-" + freq[i]);
+			}
+
+		}
 
 	}
+
 }
