@@ -1,21 +1,25 @@
 package com.giri.lambda;
 
 @FunctionalInterface
-public interface Test {
+public interface Test2 {
 
-	String msg();
+	//int add(int a, int b);
 	
+	
+	String msg();
+
 	public class Impl {
-
+		
 		public static void main(String[] args) {
-
-			Test test = () -> {
-
-				return "hello";
+			
+			Test2 test = () -> {
+				return "Hello Giri";
 
 			};
 			System.out.println(test.msg());
+
 		}
+
 	}
 
 }
