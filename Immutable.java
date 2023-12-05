@@ -1,4 +1,4 @@
-package com.giri.practice;
+package com.giri.practice.streamapi;
 
 public final class Immutable {
 
@@ -13,7 +13,6 @@ public final class Immutable {
 		if (this.i == i) {
 
 			return this;
-			
 		} else {
 			return (new Immutable(i));
 		}

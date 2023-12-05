@@ -1,4 +1,4 @@
-package com.giri.streamprogram;
+package com.giri.practice.streamapi;
 
 public class Employee {
 	private int empId;
